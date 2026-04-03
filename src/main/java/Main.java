@@ -7,14 +7,9 @@ public class Main {
     FuelCalc fuelCalc = new FuelCalc();
 
     System.out.println(
-      fuelCalc.lapsRemaining()
+      fuelCalc.pitStopsRequired()
     );
 
     
   }
-
-  // @Test
-  // void addition() {
-  //     assertEquals(2, 1 + 1);
-  // }
 }
