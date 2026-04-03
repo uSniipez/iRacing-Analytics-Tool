@@ -7,7 +7,7 @@ public double lapsRemaining() {
 }
 
 public String lapsUntilEmpty() {
-  return String System.out.println("Laps until empty:" + ((double)inputs.getFuelInTank() / inputs.getFuelPerLap()));                                                                                        
+  return "Laps until empty: " + ((double)inputs.getFuelInTank() / inputs.getFuelPerLap());
 }
 
 
