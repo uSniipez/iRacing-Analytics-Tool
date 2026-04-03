@@ -1,0 +1,35 @@
+TODO:
+
+Inputs:
+1.
+2. Fuel used per lap ✅
+3. race length (laps)   keeping it simple to stat ✅
+4. tank size ✅
+
+5. enter lap time (double) ✅✔️
+
+Calculations
+1. How many laps you can do on a tank
+2. how many pit sstops you need
+3. how much fuel to add each stop
+4. estimated total race time
+
+Convert lapTime to lapTimeInSeconds
+
+
+
+
+private Double tankSize;
+private Double lapTime; // dont think I need this
+private Double fuelUsedPerLap;
+private Integer raceLength;
+
+MATH STUFF
+---------------------------------------------------
+tankSize = 30
+fuelUsedPerLap = 2
+raceLength = 10
+
+raceLenth * fuelUserPerLap = lapsPerTank   (== total fuel needed for the race)
+
+lapsPerTank = tankSize / fuelUsedPerLap
