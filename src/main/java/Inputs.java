@@ -7,7 +7,7 @@ public class Inputs {
 
   // Methods
   public double getFuelInTank() {
-    System.out.println("Enter the amount of fuel in the car in gallons (E.g. 31.7):");
+    System.out.println("Enter the amount of fuel in the car in gallons (E.g. 26.4):");
     return Double.valueOf(scanner.nextLine());
   }
 
