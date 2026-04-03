@@ -1,25 +1,24 @@
+// Imports
 import java.util.Scanner;
 
-public class Inputs {
+// Class defintion
+public class Inputs { 
   Scanner scanner = new Scanner(System.in);
 
-  public Inputs() {
-    
+  // Methods
+  public double getFuelInTank() {
+    System.out.println("Enter the amount of fuel in the car in gallons (E.g. 31.7):");
+    return Double.valueOf(scanner.nextLine());
   }
 
-  public Double getTankSize() {
-    System.out.println("Enter the tank size in gallons (E.g. 31.7):");
-    return scanner.nextDouble();
-  }
-
-  public Double getFuelUsedPerLap() {
+  public double getFuelPerLap() {
     System.out.println("Enter the amount of fuel used per lap in gallons (E.g. 3.3):");
-    return scanner.nextDouble();
+    return Double.valueOf(scanner.nextLine());
   }
 
-  public Integer getRaceLength() {
+  public int getRaceLength() {
     System.out.println("Enter the race length in laps (E.g. 23):");
-    return scanner.nextInt();
+    return Integer.valueOf(scanner.nextLine());
   }
 
   

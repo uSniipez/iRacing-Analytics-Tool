@@ -4,11 +4,10 @@
 
 public class Main {
   public static void main(String[] args) {
-    Inputs inputs = new Inputs();
-    FuelCalculations fuelCalculations = new FuelCalculations();
+    FuelCalc fuelCalc = new FuelCalc();
 
     System.out.println(
-      fuelCalculations.lapsRemaining()
+      fuelCalc.lapsRemaining()
     );
 
     
