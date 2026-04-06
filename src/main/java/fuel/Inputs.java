@@ -1,3 +1,4 @@
+package fuel;
 // Imports
 import java.util.Scanner;
 

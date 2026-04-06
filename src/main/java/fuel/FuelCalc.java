@@ -1,3 +1,4 @@
+package fuel;
 public class FuelCalc {
   Inputs inputs = new Inputs();
 
@@ -16,6 +17,3 @@ public String pitStopsRequired() {
 
   
 }
-
-         
-//lapsPerTank = tankSize / fuelUsedPerLap

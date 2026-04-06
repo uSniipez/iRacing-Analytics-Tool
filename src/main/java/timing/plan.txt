@@ -1,0 +1,18 @@
+Goal: Import CSV file from garage61 and get the average lap time across a session.
+
+Implementation plan:
+1. Parse CSV file from garage61
+2. extract lap times
+3. calculate the average
+    - convert lap times to seconds 
+    - add laps together to get total time
+    - do math (average = total / lap count)
+
+
+Extras Features:
+If I actually pull the above off I could also add
+- filtering for bad laps
+    - Ignore laps slower than X% of best lap
+    - Ignore first lap (out lap)
+- calculate a rough estimation of how many laps you would complete in a race that is x amount of time based on average lap
+    - then combine that with the fuel calculator

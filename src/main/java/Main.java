@@ -1,15 +1,20 @@
-// import static org.junit.jupiter.api.Assertions.assertEquals;
-
-// import org.junit.jupiter.api.Test;
+import fuel.FuelCalc;
+import timing.LapAnalyzer;
 
 public class Main {
-  public static void main(String[] args) {
-    FuelCalc fuelCalc = new FuelCalc();
+  public static void main(String[] args) throws Exception {
+      processLapData("LapData.csv");
+      FuelCalc fuelCalc = new FuelCalc();
 
-    System.out.println(
-      fuelCalc.pitStopsRequired()
-    );
-
-    
+      System.out.println(
+        fuelCalc.pitStopsRequired()
+      );
   }
+  
+  private static void processLapData(String LapData) throws Exception {
+      LapAnalyzer analyzer = new LapAnalyzer();
+      analyzer.processLapData(LapData);
+  }
+  
+    
 }
