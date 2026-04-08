@@ -5,10 +5,13 @@ import java.util.Scanner;
 public class LapAnalyzer {
     
     public void processLapData(String fileName) throws Exception {
+        String sessionDate = "";
+        String driverName = ""; 
         int lapCount = 0;
         int cleanLaps = 0;
         int dirtyLaps = 0;
         double totalSeconds = 0.0; // used to find avg lap time
+        double fastestLapInSeconds = Double.MAX_VALUE; // 
         
 
         // creates a scanner for reading the file
@@ -35,28 +38,45 @@ public class LapAnalyzer {
                 // Counts clean and dirty laps
                 if (parts[5].equals("1")) {    //fix this
                     cleanLaps += 1;
+                    totalSeconds += laptime;
                 } else {
                     dirtyLaps += 1;
                 }
-                
-                totalSeconds += laptime;
+
+                // Fastest Lap
+                if (laptime < fastestLapInSeconds) {
+                    if (parts[5].equals("1")) {
+                        fastestLapInSeconds = laptime;
+                    }  
+                }
                 lapCount += 1;
+                sessionDate = parts[3];
+                driverName = parts[4];
             }   
         }
-        long avgLapMillis = Math.round((totalSeconds * 1000.0) / lapCount); //not used yet
-        long minutes = (avgLapMillis / 1000) / 60;
-        long seconds = (avgLapMillis / 1000) % 60;
-        long millis  = avgLapMillis % 1000;
-        String avgLapTime = String.format("%d:%02d.%03d", minutes, seconds, millis);
 
-        long fastestLap = 0;
+        //TODO Remove laps that are x amount slower so it doesnt mess up the results
+        String avgLapTime = formatLapTime(totalSeconds / lapCount);
+        String fastestLap = formatLapTime(fastestLapInSeconds);
+
+        
         
         // prints
-        System.out.println("Race Information from " + fileName);
-        System.out.println("Lap count: " + lapCount); 
+        System.out.println("Session Information from " + fileName + " on " + sessionDate);
+        System.out.println("Driver: " + driverName);
+        System.out.println("Fastest lap: " + fastestLap);
         System.out.println("Average laptime: " + avgLapTime);
-        System.out.println("Clean laps: " + cleanLaps + " Dirty laps: " + dirtyLaps);
+        System.out.println("Laps: " + lapCount + " | Valid: " + cleanLaps + " | Invalid: " + dirtyLaps);
         System.out.println("------------------");
     }
+
+    private String formatLapTime(double seconds) {
+        long millis = Math.round(seconds * 1000.0);
+        long minutes = (millis / 1000) / 60;
+        long secs    = (millis / 1000) % 60;
+        long ms      = (millis % 1000);
+        return String.format("%d:%02d.%03d", minutes, secs, ms);
+    }
+
 }
 
