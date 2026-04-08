@@ -4,3 +4,11 @@ It can take any csv file from garage61 and:
 - Finds the fastest lap
 - Has a simple fuel calculator
 + more soon
+
+
+Example output:
+Session Information from LapData.csv on 2026-04-02T22:57:51Z
+Driver: Jacob Beaulieu
+Fastest lap: 1:13.787
+Average laptime: 1:18.939
+Laps: 34 | Valid: 24 | Invalid: 10
