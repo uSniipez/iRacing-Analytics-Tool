@@ -1,18 +1,18 @@
 package timing;
 import java.util.Scanner;
-import java.nio.file.Paths;
+
 
 public class LapAnalyzer {
     
     public void processLapData(String fileName) throws Exception {
-        double totalLapTime = 0.0;
         int lapCount = 0;
         int cleanLaps = 0;
         int dirtyLaps = 0;
+        double totalSeconds = 0.0; // used to find avg lap time
         
 
         // creates a scanner for reading the file
-        try (Scanner scanner = new Scanner(getClass().getResourceAsStream("/" + fileName))) {  // make it so it works with any fuile
+        try (Scanner scanner = new Scanner(getClass().getResourceAsStream("/" + fileName))) {
            
             //skips header
             if (scanner.hasNextLine()) {
@@ -39,23 +39,24 @@ public class LapAnalyzer {
                     dirtyLaps += 1;
                 }
                 
-                totalLapTime += laptime;
+                totalSeconds += laptime;
                 lapCount += 1;
-            }
-            
-            
-            // prints
-            System.out.println("Race Information from " + fileName);
-            System.out.println("Lap count: " + lapCount); 
-            System.out.println("Average laptime: " + (totalLapTime / lapCount));
-            System.out.println("Clean laps: " + cleanLaps + " Dirty laps: " + dirtyLaps);
-            System.out.println("------------------");
-            
+            }   
         }
+        long avgLapMillis = Math.round((totalSeconds * 1000.0) / lapCount); //not used yet
+        long minutes = (avgLapMillis / 1000) / 60;
+        long seconds = (avgLapMillis / 1000) % 60;
+        long millis  = avgLapMillis % 1000;
+        String avgLapTime = String.format("%d:%02d.%03d", minutes, seconds, millis);
+
+        long fastestLap = 0;
+        
+        // prints
+        System.out.println("Race Information from " + fileName);
+        System.out.println("Lap count: " + lapCount); 
+        System.out.println("Average laptime: " + avgLapTime);
+        System.out.println("Clean laps: " + cleanLaps + " Dirty laps: " + dirtyLaps);
+        System.out.println("------------------");
     }
 }
 
-// ADD: skip first line
-// ADD: Counter for how many laps are in the dataset
-// ADD: only take clean laps  | clean laps are representatedx as a 1 in the csv??? fact check
-// ADD: Find fastest clean lap [5]
