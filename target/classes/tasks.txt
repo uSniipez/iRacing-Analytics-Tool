@@ -1,2 +1,6 @@
-TODO Rewrite fuel calculator
-TODO Add simple selection options/gui to choose what the application is going to do
+TODO List:
+- Rewrite fuel calculator
+- Optimal lap
+    - See best time for each sector
+- Create a GUI
+- MAYBE: Figure out how to import telemtry and do stuff with it
