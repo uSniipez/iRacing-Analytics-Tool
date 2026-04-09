@@ -15,7 +15,7 @@ public class Main {
    // System.out.println(fuelCalc.pitStopsRequired());
   }
   
-  private static void processLapData(String LapData) throws Exception {
+  public static void processLapData(String LapData) throws Exception {
       LapAnalyzer analyzer = new LapAnalyzer();
       analyzer.processLapData(LapData);
   }

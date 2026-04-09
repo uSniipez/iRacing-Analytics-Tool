@@ -46,12 +46,14 @@ public class LapAnalyzer {
         String fastestLap = formatLapTime(fastestLapInSeconds);
 
         // prints
+        System.out.println("==============================================================");
         System.out.println("Session Information from " + fileName + " on " + sessionDate);
+        System.out.println("==============================================================");
         System.out.println("Driver: " + driverName);
         System.out.println("Fastest lap: " + fastestLap);
         System.out.println("Average laptime: " + avgLapTime);
         System.out.println("Laps: " + lapCount + " | Valid: " + cleanLaps + " | Invalid: " + dirtyLaps);
-        System.out.println("------------------");
+        System.out.println("==============================================================");
     }
 
     private String formatLapTime(double seconds) {
